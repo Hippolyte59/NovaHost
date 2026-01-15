@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Docs — NovaHost</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" tabindex="0">Aller au contenu</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">NovaHost</a>
+      <nav class="main-nav" aria-label="Docs navigation">
+        <a href="index.html">Guide</a>
+        <a href="api.html">API</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="container">
+      <h1>Documentation</h1>
+      <p>Bienvenue dans la documentation de NovaHost. Exemples rapides ci-dessous — pour plus d'exemples voir la page API.</p>
+      <h2>Provisionner un VPS (exemple)</h2>
+      <pre><code>POST /v1/instances
+{
+  "name": "prod-01",
+  "plan": "vps-pro",
+  "region": "fr-par",
+  "ssh_keys": ["ssh-rsa AAAA..."]
+}
+</code></pre>
+      <p>Réponse: 201 Created avec un objet instance et un `id`.</p>
+      <p>Pour la référence complète, vois la <a href="api.html">page API</a>.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">© NovaHost</div>
+  </footer>
+</body>
+</html>

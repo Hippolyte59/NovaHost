@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>API — NovaHost</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" tabindex="0">Aller au contenu</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">NovaHost</a>
+      <nav class="main-nav" aria-label="Docs navigation">
+        <a href="index.html">Guide</a>
+        <a href="api.html">API</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="container">
+      <h1>API</h1>
+      <h2>Authentification</h2>
+      <p>Ajoute le header <code>Authorization: Bearer &lt;API_KEY&gt;</code>.</p>
+
+      <h2>Créer une instance</h2>
+      <pre><code># curl example
+curl -X POST "https://api.novahost.example/v1/instances" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"web-01","plan":"vps-pro","region":"fr-par"}'
+
+# JS fetch
+fetch('https://api.novahost.example/v1/instances',{method:'POST',headers:{'Authorization':'Bearer ' + API_KEY,'Content-Type':'application/json'},body:JSON.stringify({name:'web-01',plan:'vps-pro',region:'fr-par'})}).then(r=>r.json()).then(console.log)
+</code></pre>
+
+      <h2>Exemples de réponses</h2>
+      <pre><code>{
+  "id":"inst_abc123",
+  "name":"web-01",
+  "status":"provisioning"
+}
+</code></pre>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">© NovaHost</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaHost — Hébergement Moderne • VPS • Cloud • Dév</title>
+    <meta
+      name="description"
+      content="Plateforme d'hébergement moderne : VPS, Cloud, serveurs dédiés. Performance, sécurité et support 24/7."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+<body>
+    <a class="skip-link" href="#main" tabindex="0">Aller au contenu</a>
+
+    <!-- En-tête -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#" aria-label="NovaHost - Accueil">NovaHost</a>
+
+        <nav
+          class="main-nav"
+          id="mainNav"
+          role="navigation"
+          aria-label="Navigation principale"
+          data-open="false"
+        >
+          <a href="#features">Fonctionnalités</a>
+          <a href="#pricing">Tarifs</a>
+          <a href="docs/index.html">Docs</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-ctas">
+          <button
+            id="themeToggle"
+            class="icon-btn"
+            aria-pressed="false"
+            aria-label="Basculer le thème"
+          >
+            <svg
+              class="icon-theme"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                fill="currentColor"
+              /></svg
+            >
+          </button>
+          <button class="btn btn-primary" aria-label="Se lancer">
+            Se lancer
+          </button>
+          <button
+            class="btn btn-ghost nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mainNav"
+            aria-label="Ouvrir le menu"
+          >
+            <svg
+              class="icon-menu"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 6h18M3 12h18M3 18h18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              /></svg
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main id="main">
+      <!-- Section Héro -->
+      <section class="hero" role="region" aria-labelledby="heroTitle">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1 id="heroTitle">
+              Hébergement pensé pour les développeurs — 2026
+            </h1>
+            <p class="lead">
+              VPS évolutifs, instances cloud, serveurs dédiés et APIs pour
+              déployer en quelques secondes. Performance, sécurité & SLA pro.
+            </p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#pricing">
+                Découvrir les offres
+              </a>
+              <a class="btn btn-ghost" href="#pricing">
+                Voir la documentation
+              </a>
+            </div>
+            <ul class="meta-list">
+              <li>
+                <strong>Scalabilité</strong> — montée en charge instantanée
+              </li>
+              <li><strong>Sécurité</strong> — backups et chiffrement</li>
+              <li>
+                <strong>API</strong> — intégrations CI/CD prêtes à l'emploi
+              </li>
+            </ul>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="mock-dashboard">
+              <div class="mock-top">VPS • Cloud • API</div>
+              <div class="mock-chart"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Fonctionnalités -->
+      <section id="features" class="features" role="region" aria-labelledby="featuresTitle">
+        <div class="container grid-4">
+          <h2 id="featuresTitle" class="sr-only">Fonctionnalités</h2>
+
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2l3 7h7l-5.7 4.3L20 22l-8-5-8 5 1.7-8.7L0 9h7l3-7z"
+              />
+            </svg>
+            <h3>Performance</h3>
+            <p>
+              CPU dédiés, NVMe ultra-rapide et réseau 10Gbps pour des temps de
+              réponse optimaux.
+            </p>
+          </div>
+
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 1L3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"
+              />
+            </svg>
+            <h3>Sécurité</h3>
+            <p>
+              Firewall, DDoS mitigation et sauvegardes cryptées configurables
+              par projet.
+            </p>
+          </div>
+
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a8 8 0 108 8 8 8 0 00-8-8z" />
+            </svg>
+            <h3>Autoscaling</h3>
+            <p>
+              Ajuste la capacité automatiquement pendant les pics de charge.
+              Facturation à la minute.
+            </p>
+          </div>
+
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2v6l4 2-4 2v6l-4-6-4 6V8l8-6z" />
+            </svg>
+            <h3>Support Dév</h3>
+            <p>
+              API REST, snapshots, accès SSH, et équipe support experte 24/7.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Tarification -->
+      <section id="pricing" class="pricing" role="region" aria-labelledby="pricingTitle">
+        <div class="container">
+          <h2 id="pricingTitle">Plans & Tarifs</h2>
+
+          <div class="pricing-toggle">
+            <label>
+              Mensuel
+              <input type="checkbox" id="billingToggle" />
+              Annuel (10% off)
+            </label>
+          </div>
+
+          <div class="grid-3">
+            <!-- Plan Starter -->
+            <div
+              class="card"
+              data-plan="starter"
+              data-monthly="5"
+              data-annual="54"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <h3>Starter</h3>
+              <p class="price">
+                <span class="amount" data-base="5">€5</span>/mois
+              </p>
+              <ul>
+                <li>1 vCPU • 1GB RAM • 25GB NVMe</li>
+                <li>1 IPv4 • Backups</li>
+              </ul>
+              <button
+                class="btn btn-outline select-plan"
+                data-plan="starter"
+                aria-pressed="false"
+              >
+                Sélectionner
+              </button>
+            </div>
+
+            <!-- Plan VPS Pro (en avant) -->
+            <div
+              class="card featured"
+              data-plan="vps-pro"
+              data-monthly="20"
+              data-annual="216"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <h3>VPS Pro</h3>
+              <p class="price">
+                <span class="amount" data-base="20">€20</span>/mois
+              </p>
+              <ul>
+                <li>4 vCPU • 8GB RAM • 160GB NVMe</li>
+                <li>Snapshots • Monitoring • SLA</li>
+              </ul>
+              <button
+                class="btn btn-primary select-plan"
+                data-plan="vps-pro"
+                aria-pressed="false"
+              >
+                Sélectionner
+              </button>
+            </div>
+
+            <!-- Plan Dedicated -->
+            <div
+              class="card"
+              data-plan="dedicated"
+              data-monthly="120"
+              data-annual="1296"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <h3>Dedicated</h3>
+              <p class="price">
+                <span class="amount" data-base="120">€120</span>/mois
+              </p>
+              <ul>
+                <li>8+ Cores • 64GB RAM • Stockage dédié</li>
+                <li>Support prioritaire • IPs dédiées</li>
+              </ul>
+              <button
+                class="btn btn-outline select-plan"
+                data-plan="dedicated"
+                aria-pressed="false"
+              >
+                Sélectionner
+              </button>
+            </div>
+          </div>
+
+          <!-- Calculateur de ressources -->
+          <div class="pricing-calculator reveal" aria-hidden="false">
+            <h3>Simulateur de ressources</h3>
+
+            <div class="calc-row">
+              <label>
+                vCPU
+                <input id="cpuRange" type="range" min="1" max="32" value="2" />
+              </label>
+              <div class="calc-value"><span id="cpuVal">2</span> vCPU</div>
+            </div>
+
+            <div class="calc-row">
+              <label>
+                RAM (GB)
+                <input
+                  id="ramRange"
+                  type="range"
+                  min="1"
+                  max="256"
+                  value="4"
+                />
+              </label>
+              <div class="calc-value"><span id="ramVal">4</span> GB</div>
+            </div>
+
+            <div class="calc-row">
+              <label>
+                Stockage (GB)
+                <input
+                  id="diskRange"
+                  type="range"
+                  min="20"
+                  max="2000"
+                  value="100"
+                />
+              </label>
+              <div class="calc-value">
+                <span id="diskVal">100</span> GB
+              </div>
+            </div>
+
+            <div class="calc-result">
+              Estimation: <strong id="calcPrice">€12</strong>/mois
+            </div>
+          </div>
+
+          <!-- Panneau d'estimation -->
+          <aside class="estimate-panel reveal" aria-label="Estimation rapide">
+            <h4>Estimation rapide</h4>
+            <div class="estimate-item">
+              Plan: <span id="estPlan">Aucun</span>
+            </div>
+            <div class="estimate-item">
+              Ressources: <span id="estResources">—</span>
+            </div>
+            <div class="estimate-item">
+              Prix:
+              <strong id="estPrice" aria-live="polite" aria-atomic="true">
+                €0
+              </strong>
+              / <span id="estPeriod">mois</span>
+            </div>
+            <div class="estimate-actions">
+              <button class="btn btn-primary" id="addToCart" disabled>
+                Ajouter
+              </button>
+              <button class="btn btn-ghost" id="toggleBillingSmall" aria-pressed="false">
+                Annuel
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Section Contact -->
+      <section id="contact" class="contact" role="region" aria-labelledby="contactTitle">
+        <div class="container grid-2">
+          <div>
+            <h2 id="contactTitle">Contact</h2>
+            <p>
+              Prêt à migrer ? Besoin d'un devis personnalisé ? Contacte notre
+              équipe.
+            </p>
+            <form id="contactForm">
+              <label>
+                Nom
+                <input name="name" type="text" required />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" required />
+              </label>
+              <label>
+                Message
+                <textarea
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Envoyer</button>
+            </form>
+          </div>
+
+          <div>
+            <h3>Statut du réseau</h3>
+            <p>Uptime 99.99% • Datacenters : EU / US / APAC</p>
+            <div class="status" role="status" aria-live="polite">
+              <div class="status-item">
+                <span class="status-dot up" aria-hidden="true"></span>
+                <span class="status-label">API</span>
+                <span class="status-desc">Opérationnel</span>
+              </div>
+              <div class="status-item">
+                <span class="status-dot up" aria-hidden="true"></span>
+                <span class="status-label">Provisioning</span>
+                <span class="status-desc">Opérationnel</span>
+              </div>
+              <div class="status-item">
+                <span class="status-dot up" aria-hidden="true"></span>
+                <span class="status-label">Backups</span>
+                <span class="status-desc">Opérationnel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div>© <span id="year"></span> NovaHost — Conçu pour développeurs</div>
+          <form id="newsletterForm" class="newsletter" aria-label="S'abonner à la newsletter">
+            <label class="sr-only" for="newsletterEmail">Email</label>
+            <input
+              id="newsletterEmail"
+              name="email"
+              type="email"
+              placeholder="Ton email"
+              required
+            />
+            <button class="btn btn-primary" type="submit">S'abonner</button>
+          </form>
+        </div>
+        <nav class="footer-nav">
+          <a href="#">CGU</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Status</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Toast (notifications) -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+      <span class="toast-msg"></span>
+      <button class="toast-close" aria-label="Fermer la notification">
+        ×
+      </button>
+    </div>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
