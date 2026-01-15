@@ -6,7 +6,7 @@ Template simple, moderne et accessible pour page d'hébergement (VPS, Cloud, Ser
 ## 📋 Structure du Projet
 
 ```
-hosting-template/
+NovaHost/
 ├── index.html              # Page principale (438 lignes, sémantique)
 ├── styles.css              # Styles modernes (1299 lignes, commentés)
 ├── main.js                 # JavaScript (709 lignes, 14 modules)
@@ -58,7 +58,7 @@ hosting-template/
 1. **Cloner/télécharger** le projet
 ```bash
 git clone <repo-url>
-cd hosting-template
+cd NovaHost
 ```
 
 2. **Ouvrir `index.html`** directement dans le navigateur (pas de build nécessaire)
