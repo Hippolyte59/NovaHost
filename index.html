@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NovaHost — Hébergement Moderne • VPS • Cloud • Dév</title>
+    <title>NovaHost — Hébergement VPS, Cloud & Serveurs Dédiés | 2026</title>
     <meta
       name="description"
-      content="Plateforme d'hébergement moderne : VPS, Cloud, serveurs dédiés. Performance, sécurité et support 24/7."
+      content="Plateforme d'hébergement pour développeurs : VPS haute performance (NVMe, 10Gbps), instances cloud autoscaling, serveurs dédiés. Support 24/7, API intégrée, uptime 99.99%."
     />
+    <meta name="keywords" content="VPS, cloud hosting, serveurs dédiés, hébergement web, API, SLA pro" />
+    <meta property="og:title" content="NovaHost — Hébergement Moderne" />
+    <meta property="og:description" content="VPS scalables, instances cloud et serveurs dédiés pensés pour les développeurs" />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 <body>
@@ -27,8 +31,9 @@
         >
           <a href="#features">Fonctionnalités</a>
           <a href="#pricing">Tarifs</a>
-          <a href="docs/index.html">Docs</a>
+          <a href="#calculator">Simulateur</a>
           <a href="#contact">Contact</a>
+          <a href="docs/index.html">API Docs</a>
         </nav>
 
         <div class="header-ctas">
@@ -87,34 +92,45 @@
         <div class="container hero-inner">
           <div class="hero-copy">
             <h1 id="heroTitle">
-              Hébergement pensé pour les développeurs — 2026
+              Infrastructure cloud pour développeurs — 2026
             </h1>
             <p class="lead">
-              VPS évolutifs, instances cloud, serveurs dédiés et APIs pour
-              déployer en quelques secondes. Performance, sécurité & SLA pro.
+              VPS ultra-rapides (NVMe, 10Gbps), instances cloud autoscaling, 
+              serveurs dédiés et API complète pour déployer en secondes. 
+              Sécurité enterprise, uptime 99.99%, support technique expert.
             </p>
             <div class="hero-ctas">
               <a class="btn btn-primary" href="#pricing">
-                Découvrir les offres
+                Démarrer gratuitement
               </a>
-              <a class="btn btn-ghost" href="#pricing">
-                Voir la documentation
+              <a class="btn btn-ghost" href="#calculator">
+                Voir le simulateur
               </a>
             </div>
             <ul class="meta-list">
               <li>
-                <strong>Scalabilité</strong> — montée en charge instantanée
+                <strong>⚡ Performance</strong> — CPU dédiés + NVMe + 10Gbps
               </li>
-              <li><strong>Sécurité</strong> — backups et chiffrement</li>
               <li>
-                <strong>API</strong> — intégrations CI/CD prêtes à l'emploi
+                <strong>🔒 Sécurité</strong> — Firewall, DDoS protection, backups
+              </li>
+              <li>
+                <strong>📈 Scalabilité</strong> — Autoscaling en secondes
+              </li>
+              <li>
+                <strong>🔌 API</strong> — Intégrations CI/CD prêtes à l'emploi
               </li>
             </ul>
           </div>
           <div class="hero-visual" aria-hidden="true">
             <div class="mock-dashboard">
-              <div class="mock-top">VPS • Cloud • API</div>
-              <div class="mock-chart"></div>
+              <div class="mock-top">Tableau de bord NovaHost</div>
+              <div class="mock-chart">📊 Monitoring temps réel</div>
+              <div class="mock-stats">
+                <span>↑ 99.99% Uptime</span>
+                <span>⚡ 10Gbps</span>
+                <span>🔐 Chiffré</span>
+              </div>
             </div>
           </div>
         </div>
@@ -122,55 +138,108 @@
 
       <!-- Section Fonctionnalités -->
       <section id="features" class="features" role="region" aria-labelledby="featuresTitle">
+        <div class="container">
+          <h2 id="featuresTitle">Pourquoi NovaHost?</h2>
+          <p class="section-lead">Tout ce qu'il faut pour déployer en confiance</p>
+        </div>
         <div class="container grid-4">
-          <h2 id="featuresTitle" class="sr-only">Fonctionnalités</h2>
-
-          <div class="feature">
+          <div class="feature reveal" data-reveal-el>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 2l3 7h7l-5.7 4.3L20 22l-8-5-8 5 1.7-8.7L0 9h7l3-7z"
                 fill="currentColor"
               />
             </svg>
-            <h3>Performance</h3>
+            <h3>Performance Ultra</h3>
             <p>
-              CPU dédiés, NVMe ultra-rapide et réseau 10Gbps pour des temps de
-              réponse optimaux.
+              CPU dédiés, NVMe ultra-rapide (jusqu'à 2GB/s), réseau 10Gbps 
+              et CDN global pour latence minimale.
             </p>
           </div>
 
-          <div class="feature">
+          <div class="feature reveal" data-reveal-el>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 1L3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"
                 fill="currentColor"
               />
             </svg>
-            <h3>Sécurité</h3>
+            <h3>Sécurité Enterprise</h3>
             <p>
-              Firewall, DDoS mitigation et sauvegardes cryptées configurables
-              par projet.
+              Firewall configurable, protection DDoS incluye, sauvegardes cryptées,
+              certifications SOC 2 & GDPR.
             </p>
           </div>
 
-          <div class="feature">
+          <div class="feature reveal" data-reveal-el>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2a8 8 0 108 8 8 8 0 00-8-8z" fill="currentColor" />
             </svg>
-            <h3>Autoscaling</h3>
+            <h3>Autoscaling Intelligent</h3>
             <p>
-              Ajuste la capacité automatiquement pendant les pics de charge.
-              Facturation à la minute.
+              Ajuste la capacité automatiquement selon la charge. 
+              Facturation à la seconde, sans engagement.
             </p>
           </div>
 
-          <div class="feature">
+          <div class="feature reveal" data-reveal-el>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2v6l4 2-4 2v6l-4-6-4 6V8l8-6z" fill="currentColor" />
             </svg>
-            <h3>Support Dév</h3>
+            <h3>API & Automation</h3>
             <p>
-              API REST, snapshots, accès SSH, et équipe support experte 24/7.
+              API REST complète, Terraform provider, CI/CD intégrées.
+              Déploie et scale via automation, accès SSH/root.
+            </p>
+          </div>
+
+          <div class="feature reveal" data-reveal-el>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                fill="currentColor"
+              />
+            </svg>
+            <h3>Snapshots & Backups</h3>
+            <p>
+              Créer des snapshots instantanés, sauvegardes programmées,
+              migration facile entre serveurs.
+            </p>
+          </div>
+
+          <div class="feature reveal" data-reveal-el>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
+            </svg>
+            <h3>Support 24/7 Expert</h3>
+            <p>
+              Équipe support technique française disponible 24h/24, 7j/7.
+              Temps de réponse &lt; 1h pour incidents critiques.
+            </p>
+          </div>
+
+          <div class="feature reveal" data-reveal-el>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l9.09 6.26L21 19H3l-.09-10.74L12 2z" fill="currentColor" />
+            </svg>
+            <h3>Uptime Garanti</h3>
+            <p>
+              SLA 99.99% avec crédits automatiques. Datacenters multizones
+              (EU, US, APAC) avec failover instantané.
+            </p>
+          </div>
+
+          <div class="feature reveal" data-reveal-el>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                fill="currentColor"
+              />
+            </svg>
+            <h3>Pricing Transparent</h3>
+            <p>
+              Pas de frais cachés. Tarif horaire flexible, estimation live
+              et facturation précise à la seconde.
             </p>
           </div>
         </div>
@@ -264,49 +333,47 @@
           </div>
 
           <!-- Calculateur de ressources -->
-          <div class="pricing-calculator reveal" aria-hidden="false">
+          <div class="pricing-calculator reveal" id="calculator" aria-label="Simulateur de configuration">
             <h3>Simulateur de ressources</h3>
+            <p>Ajuste les ressources et vois le prix estimé en temps réel</p>
 
             <div class="calc-row">
               <label>
-                vCPU
-                <input id="cpuRange" type="range" min="1" max="32" value="2" />
+                vCPU: <span id="cpuVal" style="font-weight:bold;">2</span>
+                <input id="cpuRange" type="range" min="1" max="32" value="2" aria-label="Nombre de vCPU" />
               </label>
-              <div class="calc-value"><span id="cpuVal">2</span> vCPU</div>
             </div>
 
             <div class="calc-row">
               <label>
-                RAM (GB)
+                RAM: <span id="ramVal" style="font-weight:bold;">4</span> GB
                 <input
                   id="ramRange"
                   type="range"
                   min="1"
                   max="256"
                   value="4"
+                  aria-label="Quantité de RAM en GB"
                 />
               </label>
-              <div class="calc-value"><span id="ramVal">4</span> GB</div>
             </div>
 
             <div class="calc-row">
               <label>
-                Stockage (GB)
+                Stockage: <span id="diskVal" style="font-weight:bold;">100</span> GB
                 <input
                   id="diskRange"
                   type="range"
                   min="20"
                   max="2000"
                   value="100"
+                  aria-label="Espace disque en GB"
                 />
               </label>
-              <div class="calc-value">
-                <span id="diskVal">100</span> GB
-              </div>
             </div>
 
             <div class="calc-result">
-              Estimation: <strong id="calcPrice">€12</strong>/mois
+              Coût estimé: <strong id="calcPrice">€12</strong>/mois
             </div>
           </div>
 
@@ -342,39 +409,41 @@
       <section id="contact" class="contact" role="region" aria-labelledby="contactTitle">
         <div class="container grid-2">
           <div>
-            <h2 id="contactTitle">Contact</h2>
+            <h2 id="contactTitle">Besoin d'aide?</h2>
             <p>
-              Prêt à migrer ? Besoin d'un devis personnalisé ? Contacte notre
-              équipe.
+              Prêt à migrer? Questions techniques? Besoin d'un devis personnalisé? 
+              L'équipe NovaHost est là pour vous aider.
             </p>
             <form id="contactForm" aria-label="Formulaire de contact">
               <label>
-                Nom
-                <input name="name" type="text" required />
+                Votre nom*
+                <input name="name" type="text" placeholder="Jean Dupont" required />
               </label>
               <label>
-                Email
-                <input name="email" type="email" required />
+                Email*
+                <input name="email" type="email" placeholder="jean@example.com" required />
               </label>
               <label>
-                Message
+                Message*
                 <textarea
                   name="message"
                   rows="4"
+                  placeholder="Décris ton projet ou ta question..."
                   required
                 ></textarea>
               </label>
-              <button class="btn btn-primary" type="submit">Envoyer</button>
+              <button class="btn btn-primary" type="submit">Envoyer le message</button>
             </form>
           </div>
 
           <div>
-            <h3>Statut du réseau</h3>
-            <p>Uptime 99.99% • Datacenters : EU / US / APAC</p>
-            <div class="status" role="status" aria-live="polite">
+            <h3>Santé de l'infrastructure</h3>
+            <p><strong>Uptime: 99.99%</strong></p>
+            <p class="muted">Datacenters: 🇪🇺 EU • 🇺🇸 US • 🌏 APAC</p>
+            <div class="status" role="status" aria-live="polite" aria-label="Status des services">
               <div class="status-item">
                 <span class="status-dot up" aria-hidden="true"></span>
-                <span class="status-label">API</span>
+                <span class="status-label">API Control</span>
                 <span class="status-desc">Opérationnel</span>
               </div>
               <div class="status-item">
@@ -387,7 +456,15 @@
                 <span class="status-label">Backups</span>
                 <span class="status-desc">Opérationnel</span>
               </div>
+              <div class="status-item">
+                <span class="status-dot up" aria-hidden="true"></span>
+                <span class="status-label">CDN Global</span>
+                <span class="status-desc">Opérationnel</span>
+              </div>
             </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted);">
+              <a href="#" style="color: inherit;">→ Voir le status complet</a>
+            </p>
           </div>
         </div>
       </section>
@@ -396,24 +473,49 @@
     <!-- Pied de page -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>
-          <div>© <span id="year"></span> NovaHost — Conçu pour développeurs</div>
+        <div class="footer-top">
+          <div>
+            <strong>NovaHost © <span id="year"></span></strong>
+            <p>Infrastructure cloud pensée pour développeurs</p>
+          </div>
           <form id="newsletterForm" class="newsletter" aria-label="S'abonner à la newsletter">
-            <label class="sr-only" for="newsletterEmail">Email</label>
+            <label class="sr-only" for="newsletterEmail">Adresse email</label>
             <input
               id="newsletterEmail"
               name="email"
               type="email"
               placeholder="Ton email"
+              aria-label="Adresse email pour la newsletter"
               required
             />
-            <button class="btn btn-primary" type="submit">S'abonner</button>
+            <button class="btn btn-primary" type="submit" aria-label="S'abonner">→</button>
           </form>
         </div>
         <nav class="footer-nav">
-          <a href="#">CGU</a>
-          <a href="#">Confidentialité</a>
-          <a href="#">Status</a>
+          <div>
+            <h4>Produit</h4>
+            <ul>
+              <li><a href="#pricing">Tarifs</a></li>
+              <li><a href="#features">Fonctionnalités</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Ressources</h4>
+            <ul>
+              <li><a href="docs/index.html">API Docs</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Communauté</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">CGU</a></li>
+              <li><a href="#">Confidentialité</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </footer>
