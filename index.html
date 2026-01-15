@@ -48,8 +48,8 @@
               <path
                 d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
                 fill="currentColor"
-              /></svg
-            >
+              />
+            </svg>
           </button>
           <button class="btn btn-primary" aria-label="Se lancer">
             Se lancer
@@ -73,8 +73,8 @@
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-              /></svg
-            >
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -129,6 +129,7 @@
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 2l3 7h7l-5.7 4.3L20 22l-8-5-8 5 1.7-8.7L0 9h7l3-7z"
+                fill="currentColor"
               />
             </svg>
             <h3>Performance</h3>
@@ -142,6 +143,7 @@
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 1L3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"
+                fill="currentColor"
               />
             </svg>
             <h3>Sécurité</h3>
@@ -153,7 +155,7 @@
 
           <div class="feature">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2a8 8 0 108 8 8 8 0 00-8-8z" />
+              <path d="M12 2a8 8 0 108 8 8 8 0 00-8-8z" fill="currentColor" />
             </svg>
             <h3>Autoscaling</h3>
             <p>
@@ -164,7 +166,7 @@
 
           <div class="feature">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2v6l4 2-4 2v6l-4-6-4 6V8l8-6z" />
+              <path d="M12 2v6l4 2-4 2v6l-4-6-4 6V8l8-6z" fill="currentColor" />
             </svg>
             <h3>Support Dév</h3>
             <p>
@@ -194,9 +196,6 @@
               data-plan="starter"
               data-monthly="5"
               data-annual="54"
-              role="button"
-              tabindex="0"
-              aria-pressed="false"
             >
               <h3>Starter</h3>
               <p class="price">
@@ -221,9 +220,6 @@
               data-plan="vps-pro"
               data-monthly="20"
               data-annual="216"
-              role="button"
-              tabindex="0"
-              aria-pressed="false"
             >
               <h3>VPS Pro</h3>
               <p class="price">
@@ -248,9 +244,6 @@
               data-plan="dedicated"
               data-monthly="120"
               data-annual="1296"
-              role="button"
-              tabindex="0"
-              aria-pressed="false"
             >
               <h3>Dedicated</h3>
               <p class="price">
@@ -354,7 +347,7 @@
               Prêt à migrer ? Besoin d'un devis personnalisé ? Contacte notre
               équipe.
             </p>
-            <form id="contactForm">
+            <form id="contactForm" aria-label="Formulaire de contact">
               <label>
                 Nom
                 <input name="name" type="text" required />

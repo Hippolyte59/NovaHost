@@ -197,7 +197,7 @@
   // 5. MICRO-INTERACTION 3D SUR CARTES
   // ========================================
   if (!prefersReduced) {
-    document.querySelectorAll('''.card[role="button"]''').forEach((card) => {
+    document.querySelectorAll(".card").forEach((card) => {
       card.style.transformStyle = "preserve-3d";
 
       card.addEventListener("mousemove", (e) => {
@@ -365,7 +365,7 @@
     });
   });
 
-  document.querySelectorAll('''.card[role="button"]''').forEach((card) => {
+  document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {
       const btn = card.querySelector(".select-plan");
       if (btn) {
@@ -447,7 +447,7 @@
 
   if (addToCart) {
     addToCart.addEventListener("click", () => {
-      showToast("Plan ajouté à l''estimation.");
+      showToast("Plan ajouté à l'estimation.");
       addToCart.disabled = true;
       setTimeout(() => {
         addToCart.disabled = false;
@@ -526,27 +526,27 @@
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (name.length < 2) {
-        setInvalid(form.querySelector(''[name="name"]''), "Nom trop court");
+        setInvalid(form.querySelector('[name="name"]'), "Nom trop court");
         ok = false;
       } else {
-        clearInvalid(form.querySelector(''[name="name"]''));
+        clearInvalid(form.querySelector('[name="name"]'));
       }
 
       if (!emailRe.test(email)) {
-        setInvalid(form.querySelector(''[name="email"]''), "Email invalide");
+        setInvalid(form.querySelector('[name="email"]'), "Email invalide");
         ok = false;
       } else {
-        clearInvalid(form.querySelector(''[name="email"]''));
+        clearInvalid(form.querySelector('[name="email"]'));
       }
 
       if (message.length < 6) {
         setInvalid(
-          form.querySelector(''[name="message"]''),
+          form.querySelector('[name="message"]'),
           "Message trop court"
         );
         ok = false;
       } else {
-        clearInvalid(form.querySelector(''[name="message"]''));
+        clearInvalid(form.querySelector('[name="message"]'));
       }
 
       if (!ok) return;
@@ -568,12 +568,12 @@
       e.preventDefault();
 
       const email = (
-        newsletterForm.querySelector(''[name="email"]'').value || ""
+        newsletterForm.querySelector('[name="email"]').value || ""
       ).trim();
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!emailRe.test(email)) {
-        showToast("Email invalide pour l''inscription.");
+        showToast("Email invalide pour l'inscription.");
         return;
       }
 
@@ -583,7 +583,7 @@
   }
 
   // ========================================
-  // 12. ANIMATIONS D''APPARITION (REVEAL)
+  // 12. ANIMATIONS D'APPARITION (REVEAL)
   // ========================================
   const revealEls = document.querySelectorAll(".reveal");
 
