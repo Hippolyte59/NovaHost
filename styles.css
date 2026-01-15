@@ -247,6 +247,7 @@ body {
     position: fixed;
     right: 1rem;
     top: 72px;
+    z-index: 50;
     background: var(--bg-secondary);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -260,12 +261,14 @@ body {
     visibility: hidden;
     transition: transform 0.22s ease, opacity 0.18s, visibility 0.18s;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
   }
 
   .main-nav.open {
     transform: translateY(0) scale(1);
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-toggle {
