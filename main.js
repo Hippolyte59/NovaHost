@@ -174,13 +174,14 @@
   [cpuRange, ramRange, diskRange].forEach(el=>{ if(el) el.addEventListener('input', ()=>{ computeResourceCost(); computeEstimate(); }); });
   computeResourceCost();
 
+  const toggleBillingSmall = document.getElementById('toggleBillingSmall');
+  
   let selectedPlan = null;
   const estPlan = document.getElementById('estPlan');
   const estResources = document.getElementById('estResources');
   const estPrice = document.getElementById('estPrice');
   const estPeriod = document.getElementById('estPeriod');
   const addToCart = document.getElementById('addToCart');
-  const toggleBillingSmall = document.getElementById('toggleBillingSmall');
 
   const selectPlanElement = (card, btn)=>{
     document.querySelectorAll('.card').forEach(c=>{ c.classList.remove('selected'); c.setAttribute('aria-pressed','false'); });
