@@ -3,7 +3,7 @@
 Template simple, moderne et accessible pour page d'hébergement (VPS, Cloud, Serveurs dédiés).  
 **Production-ready** avec design premium, animations fluides et accessibilité WCAG 2.1 AA.
 
-## 📋 Structure du Projet
+## Structure du Projet
 
 ```
 NovaHost/
@@ -18,7 +18,7 @@ NovaHost/
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 ### Core Features
 - **Thème Clair/Sombre** - Basculement avec sauvegarde localStorage
@@ -41,17 +41,17 @@ NovaHost/
 - **Validation en temps réel** - Borders rouges + glow + messages
 
 ### Accessibilité
-- ✅ **WCAG 2.1 Level AA** conforme
-- ✅ Navigation clavier complète (Tab, Shift+Tab, Escape, Enter, Space)
-- ✅ ARIA labels sur tous les contrôles
-- ✅ Focus trap sur menu mobile
-- ✅ `prefers-reduced-motion` respecté
-- ✅ `skip-link` pour accès rapide au contenu
-- ✅ Contraste 4.5:1 minimum
+- **WCAG 2.1 Level AA** conforme
+- Navigation clavier complète (Tab, Shift+Tab, Escape, Enter, Space)
+- ARIA labels sur tous les contrôles
+- Pocus trap sur menu mobile
+- `prefers-reduced-motion` respecté
+- `skip-link` pour accès rapide au contenu
+- Contraste 4.5:1 minimum
 
 ---
 
-## 🚀 Installation & Utilisation
+## Installation & Utilisation
 
 ### Démarrage Rapide
 
@@ -73,7 +73,7 @@ python -m http.server 8000
 
 ---
 
-## 🎨 Personnalisation
+## Personnalisation
 
 ### 1. Couleurs & Thème
 
@@ -159,7 +159,7 @@ fetch('https://votre-api.com/newsletter', {
 
 ---
 
-## 📝 CSS - Structure & Organisation
+## CSS - Structure & Organisation
 
 Le CSS est organisé en sections claires (1299 lignes) :
 
@@ -193,7 +193,7 @@ Media queries (900px, 720px, 520px)
 
 ---
 
-## 🔧 JavaScript - Architecture (14 Modules)
+## JavaScript - Architecture (14 Modules)
 
 **709 lignes, complètement commentées :**
 
@@ -215,14 +215,14 @@ Media queries (900px, 720px, 520px)
 | 14. **Parallax** | Smooth scroll + parallax | 601-620 |
 
 **Performance:**
-- ✅ `requestAnimationFrame` pour animations fluides
-- ✅ `MutationObserver` pour DOM dynamique
-- ✅ Event delegation
-- ✅ Lazy detection de `prefers-reduced-motion`
+- `requestAnimationFrame` pour animations fluides
+- `MutationObserver` pour DOM dynamique
+- Event delegation
+- Lazy detection de `prefers-reduced-motion`
 
 ---
 
-## ♿ Accessibilité Détaillée
+## Accessibilité Détaillée
 
 ### Clavier
 | Touche | Action |
@@ -264,7 +264,7 @@ if (!prefersReduced) {
 
 ---
 
-## 📱 Responsive Design
+## Responsive Design
 
 | Breakpoint | Device | Layout |
 |-----------|--------|--------|
@@ -291,7 +291,7 @@ if (!prefersReduced) {
 
 ---
 
-## 🎬 Animations Disponibles
+## Animations Disponibles
 
 ### CSS Keyframes (14 animations)
 
@@ -318,17 +318,17 @@ if (!prefersReduced) {
 
 ---
 
-## 🔒 Sécurité
+## Sécurité
 
-- ✅ Pas de dépendances externes (vanilla JS)
-- ✅ XSS Protection via `textContent` (pas `innerHTML`)
-- ✅ CSRF Protection recommandée sur backends
-- ✅ HTTPS obligatoire en production
-- ✅ CSP Headers suggérés
+- Pas de dépendances externes (vanilla JS)
+- XSS Protection via `textContent` (pas `innerHTML`)
+- CSRF Protection recommandée sur backends
+- HTTPS obligatoire en production
+- CSP Headers suggérés
 
 ---
 
-## 📊 Performance
+## Performance
 
 **Metrics:**
 - **FCP** (First Contentful Paint): ~400ms
@@ -345,7 +345,7 @@ if (!prefersReduced) {
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 | Problème | Solution |
 |----------|----------|
@@ -356,13 +356,13 @@ if (!prefersReduced) {
 
 ---
 
-## 📄 Licence
+## Licence
 
 MIT License - Libre d'utilisation commerciale/personnelle
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 Améliorations bienvenues! Issues/PRs acceptées.
 
@@ -370,7 +370,7 @@ Améliorations bienvenues! Issues/PRs acceptées.
 
 **Version**: 2.0 (2026)  
 **Dernière MAJ**: 15 janvier 2026  
-**Status**: ✅ Production Ready
+**Status**: Production Ready
 
 - **Mobile** : Pleine largeur (520px)
 - Navigation mobile avec hamburger menu
