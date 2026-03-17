@@ -1,0 +1,27 @@
+# robots.txt - NovaHost
+# https://www.robotstxt.org
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.env
+Disallow: /*.env
+Disallow: /*.json
+Disallow: /*config*
+
+# Sitemap
+Sitemap: https://exemple/sitemap.xml
+
+# Crawl delay (be nice to bots)
+Crawl-delay: 1
+
+# API crawling rules
+User-agent: bingbot
+Crawl-delay: 2
+
+# Deny bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10

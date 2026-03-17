@@ -1,0 +1,300 @@
+.docs-page {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.22), transparent 36%),
+    radial-gradient(circle at 90% 0%, rgba(0, 217, 255, 0.14), transparent 34%),
+    linear-gradient(180deg, var(--bg) 0%, #0b1629 100%);
+}
+
+.docs-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 92px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem;
+  animation: docsFade 0.6s ease;
+}
+
+.docs-sidebar h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+}
+
+.docs-sidebar a {
+  display: block;
+  color: var(--muted-light);
+  text-decoration: none;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.docs-sidebar a:hover,
+.docs-sidebar a:focus-visible {
+  background: rgba(0, 217, 255, 0.11);
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.docs-main {
+  display: grid;
+  gap: 1rem;
+}
+
+.docs-hero {
+  background: linear-gradient(145deg, rgba(15, 20, 40, 0.95), rgba(21, 30, 56, 0.74));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow-md);
+  animation: docsSlide 0.7s ease;
+}
+
+.docs-hero h1 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+}
+
+.docs-hero p {
+  margin: 0.6rem 0 0;
+  color: var(--muted-light);
+}
+
+.docs-chip-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.docs-chip {
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  background: rgba(0, 217, 255, 0.07);
+  color: var(--accent);
+  font-size: 0.83rem;
+  border-radius: 999px;
+  padding: 0.32rem 0.65rem;
+}
+
+.docs-card {
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.08), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  animation: docsFade 0.65s ease;
+}
+
+.docs-card h2,
+.docs-card h3 {
+  margin-top: 0;
+}
+
+.docs-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.endpoint {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: rgba(13, 21, 40, 0.72);
+}
+
+.method {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.54rem;
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-right: 0.5rem;
+}
+
+.method-get {
+  color: #67e8f9;
+  border: 1px solid rgba(103, 232, 249, 0.4);
+  background: rgba(103, 232, 249, 0.12);
+}
+
+.method-post {
+  color: #86efac;
+  border: 1px solid rgba(134, 239, 172, 0.4);
+  background: rgba(134, 239, 172, 0.12);
+}
+
+.method-delete {
+  color: #fca5a5;
+  border: 1px solid rgba(252, 165, 165, 0.4);
+  background: rgba(252, 165, 165, 0.12);
+}
+
+.docs-kv {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 0.65rem;
+  margin-top: 0.8rem;
+}
+
+.docs-kv dt {
+  color: var(--muted);
+}
+
+.docs-kv dd {
+  margin: 0;
+}
+
+.docs-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.docs-tab {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted-light);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.docs-tab[aria-selected="true"] {
+  border-color: rgba(0, 217, 255, 0.65);
+  color: var(--accent);
+  background: rgba(0, 217, 255, 0.15);
+}
+
+.docs-code {
+  position: relative;
+}
+
+.docs-code pre {
+  margin: 0;
+  padding: 0.9rem;
+  border-radius: 12px;
+  background: #0a1121;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  overflow-x: auto;
+  line-height: 1.45;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.76rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover,
+.copy-btn:focus-visible {
+  border-color: rgba(0, 217, 255, 0.6);
+  color: var(--accent);
+}
+
+.docs-note {
+  border-left: 3px solid var(--accent);
+  background: rgba(0, 217, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  color: var(--muted-light);
+}
+
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+.docs-table th,
+.docs-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 0.55rem;
+  text-align: left;
+}
+
+.docs-table th {
+  color: var(--muted-light);
+  font-weight: 600;
+}
+
+.docs-hidden {
+  display: none;
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes docsFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes docsSlide {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .docs-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-sidebar {
+    position: static;
+    top: auto;
+  }
+
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  .docs-sidebar,
+  .docs-card,
+  .docs-hero {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

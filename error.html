@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="errorTitle">Error - NovaHost</title>
+    <meta name="description" content="An error occurred on NovaHost." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta name="theme-color" content="#00d9ff" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: linear-gradient(180deg, #0a0e27 0%, #0d1a2f 50%, #0a0e27 100%);
+            color: #e8ecf1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 25s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        /* Container */
+        .error-container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.8s ease both;
+        }
+
+        /* Animated error code */
+        .error-code {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #7c3aed 0%, #00d9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: codeFloat 3s ease-in-out infinite;
+            text-shadow: 0 20px 50px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Animated icon */
+        .error-icon {
+            font-size: 5rem;
+            margin: 1rem 0;
+            animation: iconPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.3));
+        }
+
+        /* Error title */
+        .error-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 700;
+            margin: 1rem 0;
+            color: #e8ecf1;
+            animation: fadeInDown 0.6s ease both 0.2s;
+        }
+
+        /* Sous-titre / description */
+        .error-message {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: #a8adb8;
+            margin: 1rem 0 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease both 0.3s;
+        }
+
+        /* Additional details section */
+        .error-details {
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.05), rgba(0, 217, 255, 0.02));
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            animation: fadeInUp 0.6s ease both 0.4s;
+            backdrop-filter: blur(4px);
+        }
+
+        .error-details h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #00d9ff;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .error-details p {
+            font-size: 0.95rem;
+            color: #8b95a5;
+            line-height: 1.6;
+        }
+
+        /* Actions / Boutons */
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 0.6s ease both 0.5s;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid #00d9ff;
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #00d9ff 100%);
+            color: white;
+            box-shadow: 0 8px 24px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 217, 255, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00d9ff;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.05);
+            border-color: #00d9ff;
+            transform: translateY(-2px);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 217, 255, 0.2);
+            border-top-color: #00d9ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes codeFloat {
+            0%, 100% {
+                transform: translateY(0px);
+                filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.2));
+            }
+            50% {
+                transform: translateY(-10px);
+                filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.4));
+            }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Reduced motion mode */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .error-container {
+                padding: 1.5rem;
+            }
+
+            .error-code {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+            }
+
+            .error-icon {
+                font-size: 3rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .error-details {
+                padding: 1rem;
+            }
+        }
+
+        /* Error variants */
+        .error-type-404 .error-icon::before { content: '🔍'; }
+        .error-type-500 .error-icon::before { content: '⚙️'; }
+        .error-type-503 .error-icon::before { content: '🚧'; }
+        .error-type-403 .error-icon::before { content: '🔒'; }
+        .error-type-401 .error-icon::before { content: '🔐'; }
+        .error-type-client .error-icon::before { content: '⚠️'; }
+        .error-type-server .error-icon::before { content: '💥'; }
+
+        /* Accent color per error */
+        .error-type-404 { --accent: #00d9ff; }
+        .error-type-500 { --accent: #ef4444; }
+        .error-type-503 { --accent: #f59e0b; }
+        .error-type-403 { --accent: #ef4444; }
+        .error-type-401 { --accent: #8b5cf6; }
+        .error-type-client { --accent: #f59e0b; }
+        .error-type-server { --accent: #ef4444; }
+
+        /* Navigation breadcrumb */
+        .error-breadcrumb {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: #8b95a5;
+        }
+
+        .error-breadcrumb a {
+            color: #00d9ff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .error-breadcrumb a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Support du dark/light */
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(180deg, #f8f9fc 0%, #f0f2f7 50%, #f8f9fc 100%);
+                color: #0f172a;
+            }
+
+            .error-title { color: #0f172a; }
+            .error-message { color: #64748b; }
+            .error-details { 
+                background: linear-gradient(180deg, rgba(109, 40, 217, 0.08), rgba(0, 137, 178, 0.04));
+                border-color: rgba(109, 40, 217, 0.2);
+            }
+            .error-details h3 { color: #0891b2; }
+            .error-details p { color: #757575; }
+            .error-breadcrumb { color: #64748b; border-top-color: rgba(0, 0, 0, 0.1); }
+            .error-breadcrumb a { color: #0891b2; }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container" id="errorContainer">
+        <div class="error-code" id="errorCode">404</div>
+        <div class="error-icon" id="errorIcon"></div>
+        <h1 class="error-title" id="errorTitle">Page Not Found</h1>
+        <p class="error-message" id="errorMessage">
+            The page you are looking for does not exist or has been moved.
+        </p>
+
+        <div class="error-details" id="errorDetails">
+            <h3>What happened?</h3>
+            <p id="errorExplanation">
+                This resource is not available. Check the URL and try again.
+            </p>
+        </div>
+
+        <div class="error-actions">
+            <button class="btn btn-primary" onclick="goHome()">Back to Home</button>
+            <button class="btn btn-secondary" onclick="goBack()">Go Back</button>
+        </div>
+
+        <div class="error-breadcrumb">
+            <a href="/">Home</a> / <span id="breadcrumbCurrent">Error</span>
+        </div>
+    </div>
+
+    <script>
+        'use strict';
+
+        // Error configuration
+        const errorConfigs = {
+            '400': {
+                title: 'Bad Request',
+                message: 'The request sent is invalid or incomplete.',
+                explanation: 'Check your request parameters and try again.',
+                type: 'client'
+            },
+            '401': {
+                title: 'Authentication Required',
+                message: 'You must authenticate to access this resource.',
+                explanation: 'Sign in with your credentials to continue.',
+                type: '401'
+            },
+            '403': {
+                title: 'Access Denied',
+                message: 'You do not have the required permissions to access this resource.',
+                explanation: 'If you believe this is a mistake, contact support.',
+                type: '403'
+            },
+            '404': {
+                title: 'Page Not Found',
+                message: 'The page you are looking for does not exist or has been moved.',
+                explanation: 'This resource is not available. Check the URL and try again.',
+                type: '404'
+            },
+            '408': {
+                title: 'Request Timeout',
+                message: 'The request took too long. Please try again.',
+                explanation: 'The server waited too long. Check your connection.',
+                type: 'client'
+            },
+            '429': {
+                title: 'Too Many Requests',
+                message: 'You have sent too many requests. Please wait before trying again.',
+                explanation: 'For your security, requests are limited. Wait a few seconds.',
+                type: 'client'
+            },
+            '500': {
+                title: 'Server Error',
+                message: 'An internal server error occurred on the server.',
+                explanation: 'Our teams have been notified. Try again in a few minutes.',
+                type: 'server'
+            },
+            '502': {
+                title: 'Bad Gateway',
+                message: 'The server received an invalid response.',
+                explanation: 'The application server may be unavailable. Please try again.',
+                type: 'server'
+            },
+            '503': {
+                title: 'Service Unavailable',
+                message: 'The server is currently unavailable.',
+                explanation: 'The server is under maintenance. Please try again shortly.',
+                type: '503'
+            },
+            '504': {
+                title: 'Gateway Timeout',
+                message: 'The server took too long to respond.',
+                explanation: 'The application server is not responding. Try again in a few minutes.',
+                type: 'server'
+            }
+        };
+
+        // Default values
+        const defaultConfig = {
+            title: 'An Error Occurred',
+            message: 'Something went wrong. Please try again.',
+            explanation: 'An unexpected error occurred. Our teams are working on the issue.',
+            type: 'client'
+        };
+
+        // Get URL parameters
+        function getErrorCode() {
+            const params = new URLSearchParams(window.location.search);
+            let code = params.get('code') || params.get('error');
+            
+            // Fallback: if no code is provided, check HTTP status
+            if (!code && document.documentElement.getAttribute('data-error-code')) {
+                code = document.documentElement.getAttribute('data-error-code');
+            }
+            
+            // Return the code or 500 by default
+            return code ? String(code).substring(0, 3) : '500';
+        }
+
+        // Initialize page
+        function initErrorPage() {
+            const errorCode = getErrorCode();
+            const config = errorConfigs[errorCode] || defaultConfig;
+
+            // Determine error type
+            const codeNum = parseInt(errorCode);
+            let errorType = config.type;
+            
+            if (codeNum >= 400 && codeNum < 500) {
+                errorType = errorType || 'client';
+            } else if (codeNum >= 500) {
+                errorType = errorType || 'server';
+            }
+
+            // Update page
+            const container = document.getElementById('errorContainer');
+            container.className = `error-container error-type-${errorType}`;
+
+            document.getElementById('errorCode').textContent = errorCode;
+            document.getElementById('errorTitle').textContent = config.title;
+            document.getElementById('errorMessage').textContent = config.message;
+            document.getElementById('errorExplanation').textContent = config.explanation;
+            document.getElementById('breadcrumbCurrent').textContent = config.title;
+
+            // Update document title
+            document.title = `${errorCode} - ${config.title} — NovaHost`;
+
+            // Log error (without sensitive data)
+            console.warn(`[Error Page] Code: ${errorCode}, Type: ${errorType}`);
+        }
+
+        // Navigation
+        function goHome() {
+            window.location.href = '/';
+        }
+
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                goHome();
+            }
+        }
+
+        // Focus accessible
+        function setInitialFocus() {
+            const primaryBtn = document.querySelector('.btn-primary');
+            if (primaryBtn) {
+                setTimeout(() => primaryBtn.focus(), 100);
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                goHome();
+            }
+            if (e.key === 'Backspace' && !['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) {
+                goBack();
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initErrorPage();
+            setInitialFocus();
+
+            // Announce error for screen readers
+            const title = document.getElementById('errorTitle');
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'alert');
+            announcement.setAttribute('aria-live', 'assertive');
+            announcement.className = 'sr-only';
+            announcement.textContent = `Error: ${document.getElementById('errorCode').textContent} - ${title.textContent}`;
+            document.body.insertBefore(announcement, document.body.firstChild);
+        });
+
+        // Service worker support (if applicable)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.catch(() => {
+                // Ignore if there is no service worker
+            });
+        }
+    </script>
+
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</body>
+</html>

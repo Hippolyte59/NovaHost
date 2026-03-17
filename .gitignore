@@ -1,0 +1,117 @@
+# ========================================
+# .gitignore - NovaHost
+# ========================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.sublime-project
+.sublime-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build artifacts
+dist/
+build/
+*.bundle.js
+*.min.js
+*.min.css
+
+# OS files
+Thumbs.db
+.DS_Store
+*.log
+
+# Backup files
+*.bak
+*.backup
+*~
+*.tmp
+
+# Security files (never commit these!)
+*.key
+*.pem
+*.pfx
+*.p12
+private.key
+ssl/
+secrets/
+
+# Credentials
+config/secrets.json
+config/credentials.json
+.aws/
+.gcloud/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Temp files
+temp/
+tmp/
+.tmp/
+cache/
+
+# Build directories
+dist/
+build/
+public/
+
+# Dependency-lock files (for development)
+pnpm-lock.yaml
+Gemfile.lock
+
+# Local testing
+.mocha
+.nyc
+coverage/
+
+# Docker
+Dockerfile.local
+
+# CI/CD
+.github/workflows/secrets/
+.gitlab-ci.local.yml
+
+# Ignore IDE auto-completion caches
+.vscode/.history/
+
+# OS temporary files
+.AppleDouble/
+.LSOverride/
+._*
+.Spotlight-V100/
+.Trashes/
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Logs from local testing
+test-results/
+*.test.log
+
+# Generated files (but keep templates)
+!*template*

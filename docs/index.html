@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Platform Guide - NovaHost Docs</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./docs.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main" tabindex="0">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">NovaHost</a>
+      <nav class="main-nav" aria-label="Docs navigation">
+        <a href="index.html">Docs</a>
+        <a href="api.html">API</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="container docs-shell">
+      <aside class="docs-sidebar" aria-label="Documentation table of contents">
+        <h2>Quick Guide</h2>
+        <a href="#intro">Intro</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="#auth">Authentication</a>
+        <a href="#lifecycle">Instance lifecycle</a>
+        <a href="#webhooks">Webhooks</a>
+        <a href="#pratiques">Best practices</a>
+        <a href="#next">What's next</a>
+      </aside>
+
+      <div class="docs-main">
+        <article class="docs-hero" id="intro" data-animate>
+          <h1>NovaHost Documentation</h1>
+          <p>
+            This guide provides a real integration flow: creating a VPS, tracking its status,
+            handling errors, and setting up clean production automation.
+          </p>
+          <div class="docs-chip-row" aria-label="Key points">
+            <span class="docs-chip">API v1 REST</span>
+            <span class="docs-chip">Provisionnement en moins de 60s</span>
+            <span class="docs-chip">Real-time webhooks</span>
+            <span class="docs-chip">Production-ready security</span>
+          </div>
+        </article>
+
+        <article class="docs-card" id="quickstart" data-animate>
+          <h2>Quickstart: create a production VPS</h2>
+          <p>
+            Recommended workflow: send a POST request, get the machine identifier,
+            then track its status until ready.
+          </p>
+          <div class="docs-code">
+            <button class="copy-btn" data-copy-target="quickstart-code">Copier</button>
+            <pre><code id="quickstart-code">curl -X POST "https://api.novahost.dev/v1/instances" \
+  -H "Authorization: Bearer NH_LIVE_xxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "prod-web-fr-01",
+    "plan": "vps-pro-4",
+    "region": "fr-par-1",
+    "image": "ubuntu-24.04",
+    "backups": true,
+    "ssh_keys": ["key_main_admin"]
+  }'</code></pre>
+          </div>
+          <dl class="docs-kv">
+            <dt>Expected response</dt>
+            <dd>201 Created with instance_id, status = provisioning</dd>
+            <dt>Average provisioning time</dt>
+            <dd>35 to 60 seconds depending on region</dd>
+            <dt>Next step</dt>
+            <dd>GET /v1/instances/{instance_id} until status = ready</dd>
+          </dl>
+        </article>
+
+        <article class="docs-card" id="auth" data-animate>
+          <h2>Authentication</h2>
+          <p>NovaHost utilise un token Bearer par environnement (test ou live).</p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th>Environnement</th>
+                <th>Base URL</th>
+                <th>Token prefix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sandbox</td>
+                <td>https://api-sandbox.novahost.dev</td>
+                <td>NH_TEST_</td>
+              </tr>
+              <tr>
+                <td>Production</td>
+                <td>https://api.novahost.dev</td>
+                <td>NH_LIVE_</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="docs-note">
+            Never store the token client-side. Use a backend or a secrets manager.
+          </p>
+        </article>
+
+        <article class="docs-card" id="lifecycle" data-animate>
+          <h2>Instance lifecycle</h2>
+          <div class="docs-grid">
+            <div class="endpoint">
+              <h3><span class="method method-post">POST</span>/v1/instances</h3>
+              <p>Create a new instance.</p>
+            </div>
+            <div class="endpoint">
+              <h3><span class="method method-get">GET</span>/v1/instances/{id}</h3>
+              <p>Get real-time status updates.</p>
+            </div>
+            <div class="endpoint">
+              <h3><span class="method method-post">POST</span>/v1/instances/{id}/actions/reboot</h3>
+              <p>Secure reboot with full traceability.</p>
+            </div>
+            <div class="endpoint">
+              <h3><span class="method method-delete">DELETE</span>/v1/instances/{id}</h3>
+              <p>Controlled deletion with confirmation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="docs-card" id="webhooks" data-animate>
+          <h2>Infrastructure event webhooks</h2>
+          <p>
+            To avoid heavy polling, configure a server-side webhook endpoint.
+            You will receive status changes as push events.
+          </p>
+          <div class="docs-code">
+            <button class="copy-btn" data-copy-target="webhook-code">Copier</button>
+            <pre><code id="webhook-code">{
+  "event": "instance.ready",
+  "created_at": "2026-03-17T14:10:11Z",
+  "data": {
+    "instance_id": "inst_92a8f4",
+    "name": "prod-web-fr-01",
+    "region": "fr-par-1",
+    "public_ipv4": "51.15.204.77"
+  },
+  "signature": "sha256=..."
+}</code></pre>
+          </div>
+          <p class="docs-note">
+            Verify the HMAC signature on every webhook before processing events.
+          </p>
+        </article>
+
+        <article class="docs-card" id="pratiques" data-animate>
+          <h2>Production best practices</h2>
+          <ul>
+            <li>Rotate API tokens every 90 days.</li>
+            <li>Apply a maximum 10-second client HTTP timeout.</li>
+            <li>Implement exponential retry only for 429 and 5xx.</li>
+            <li>Correlate every action with a request_id in your logs.</li>
+            <li>Enable automated backups when the instance is created.</li>
+          </ul>
+        </article>
+
+        <article class="docs-card" id="next" data-animate>
+          <h2>What's next</h2>
+          <p>
+            Go to the detailed API documentation to view full schemas, error codes,
+            and multi-language examples per endpoint.
+          </p>
+          <p><a href="api.html">Open full API reference</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">© NovaHost</div>
+  </footer>
+  <script src="./docs.js" defer></script>
+</body>
+</html>
